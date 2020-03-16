@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<h4 class="favtitle"><b>Your favorites</b></h4>
+<mat-divider></mat-divider>
+<h4 class="nofavtitle" *ngIf="!favArticles.data.length">You have no favorites added.</h4>
+<table *ngIf="favArticles.data.length" mat-table [dataSource]="favArticles">
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef>Title</th>
+    <td mat-cell *matCellDef="let element">{{element.title}}</td>
+  </ng-container>
+  <ng-container matColumnDef="author">
+    <th mat-header-cell *matHeaderCellDef>Author</th>
+    <td mat-cell *matCellDef="let element">{{element.author}}</td>
+  </ng-container>
+  <ng-container matColumnDef="publishdate">
+    <th mat-header-cell *matHeaderCellDef>Publish Date</th>
+    <td mat-cell *matCellDef="let element">{{element.publishdate}}</td>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let row">
+      <button mat-raised-button (click)="removeFromFavorites(row)">Remove</button>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

@@ -1,0 +1,22 @@
+//- This is template for favorite page. It will also incorporate angular material table.
+doctype html
+h4.favtitle
+    b Your favorites
+mat-divider
+h4.nofavtitle(*ngIf="!favArticles.data.length") You have no favorites added.
+table(*ngIf="favArticles.data.length" mat-table [dataSource]="favArticles")
+    ng-container(matColumnDef="title")
+        th(mat-header-cell *matHeaderCellDef)='Title'
+        td(mat-cell *matCellDef="let element")='{{element.title}}'
+    ng-container(matColumnDef="author")
+        th(mat-header-cell *matHeaderCellDef)='Author'
+        td(mat-cell *matCellDef="let element")='{{element.author}}'
+    ng-container(matColumnDef="publishdate")
+        th(mat-header-cell *matHeaderCellDef)='Publish Date'
+        td(mat-cell *matCellDef="let element")='{{element.publishdate}}'
+    ng-container(matColumnDef="actions")
+        th(mat-header-cell *matHeaderCellDef)='Actions'
+        td(mat-cell *matCellDef="let row")
+            button(mat-raised-button (click)="removeFromFavorites(row)")='Remove' 
+    tr(mat-header-row *matHeaderRowDef="displayedColumns")
+    tr(mat-row *matRowDef="let row; columns: displayedColumns;")

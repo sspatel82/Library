@@ -1,0 +1,13 @@
+//This mixin function allow to generate router links for header menu.
+mixin menuitem(name, url, activeClass)
+    li.menuitem(routerLink=url, routerLinkActive='pageActive' , [routerLinkActiveOptions]="{ exact: true }" )=name
+div.header
+    div.logo
+        i(class="material-icons")='menu_book'
+    div.title Library Catalog Search
+    div.menu
+        ul
+            +menuitem('Search Catalog','/')
+            +menuitem('Favorites','/favorites')
+            +menuitem('About me','/aboutme')
+    

@@ -1,0 +1,13 @@
+
+<!--This mixin function allow to generate router links for header menu.-->
+<div class="header">
+  <div class="logo"><i class="material-icons">menu_book</i></div>
+  <div class="title">Library Catalog Search</div>
+  <div class="menu">
+    <ul>
+      <li class="menuitem" routerLink="/" routerLinkActive="pageActive" [routerLinkActiveOptions]="{ exact: true }">Search Catalog</li>
+      <li class="menuitem" routerLink="/favorites" routerLinkActive="pageActive" [routerLinkActiveOptions]="{ exact: true }">Favorites</li>
+      <li class="menuitem" routerLink="/aboutme" routerLinkActive="pageActive" [routerLinkActiveOptions]="{ exact: true }">About me</li>
+    </ul>
+  </div>
+</div>
